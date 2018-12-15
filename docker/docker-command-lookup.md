@@ -1,18 +1,26 @@
 ## docker常用命令速查
 `sudo service docker start`    #docker启动 
+
 `sudo service docker stop`    #docker关闭 
+
 `sudo service docker restart` #docker重启 
 
 `docker search ...` #从 Docker Hub 网站来搜索镜像（docker search httpd）
+
 `docker pull ...`  #载入镜像 (docker pull ubuntu)
 
 `docker ps` #列出当前所有正在运行的container
+
 `docker ps -a` #列出所有的container
+
 `docker ps -l`  #查询最后一次创建的container
+
 `docker logs NAMES` #查看容器内的标准输出
+
 `docker images` #查看本地所有镜像
 
 `docker start [ID或者NAMES]` #启动一个容器
+
 `docker stop [ID或者NAMES]` #停止一个容器
 
 
