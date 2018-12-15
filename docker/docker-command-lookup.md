@@ -95,4 +95,4 @@ EXPOSE  22
 EXPOSE  80
 CMD     /usr/sbin/sshd -D
 ```
-[简单Dockerfile构建镜像命令示例](./video/test-2018-12-14_20.48.39.mp4)
+[简单Dockerfile构建镜像命令示例](./videos/test-2018-12-14_20.48.39.mp4)
