@@ -57,7 +57,8 @@ docker commit -m="has update" -a="okaychen" [容器ID] okaychen/ubuntu:v2
   
 运行之后，docker ps查看，PROTS下面`0.0.0.0:32769->5000/tcp`多了端口信息，docker开放了5000端口（默认python flask端口）映射到主机端口32768上
 我们就可以通过浏览器访问该web应用
-![enter description here][2]
+
+
 
 通过-p参数来设置不同的端口
 ```
@@ -85,17 +86,8 @@ EXPOSE  22
 EXPOSE  80
 CMD     /usr/sbin/sshd -D
 ```
-![enter description here][4]
+![enter description here][2]
 
 
-
-
-
-
-
-
-
-
-  [4]: ./videos/test-2018-12-14_20.48.39.mp4 "![enter description here][4]test-2018-12-14_20.48.39"
-
-
+  [1]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214163753.png "深度截图_选择区域_20181214163753"
+  [2]: ./videos/test-2018-12-14_20.48.39.mp4 "![enter description here][4]test-2018-12-14_20.48.39"
