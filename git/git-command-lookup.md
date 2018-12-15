@@ -24,7 +24,7 @@ git reset --hard HEAD^：版本回退上一个版本
                   
                 情况2：如果上面的情况很不凑巧，我们还有一种解决方案(如果我们想进行版本回退，其实是需要commit id，我们可以通过git reflog命令)
                   
-				  	
+				  	![enter description here][2]
 				  
 git reflog：记录你的每一次命令
 git checkout -- file：将文件在工作区的修改全部撤销，恢复到上次git add或git commit的状态（-- 很重要，没有它会变成切换到一个分支的命令）
@@ -55,3 +55,4 @@ git rm：从版本库种删除一个文件（删除之后记得git commit）
 
 
   [1]: ./images/Image.png "Image"
+  [2]: ./images/2217595c-eebd-4027-a875-010460f5174c.png "2217595c-eebd-4027-a875-010460f5174c"
