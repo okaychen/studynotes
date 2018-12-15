@@ -95,4 +95,5 @@ EXPOSE  22
 EXPOSE  80
 CMD     /usr/sbin/sshd -D
 ```
-![](./video/test-2018-12-14_20.48.39.mp4)
+<video src="./video/test-2018-12-14_20.48.39.mp4" controls allowfullscreen="true" loop="true" autoplay="autoplay" width="100%" min-height="100%">embed: test-2018-12-14_20.48.39</video>
+
