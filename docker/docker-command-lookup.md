@@ -67,11 +67,10 @@ docker run -d -p 5000:5000 training/webapp python app.py
 另外还可以
 - 通过`docker port NAMESE`来查看制定容器的某个确定端口映射到宿主机的端口号
 - 通过`docker logs [ID或者NAMSE]`可以查看容器内部的标准输出
-- 
-![enter description here][3]
-
 - 通过`docker top [ID或者NAMESE]`来查看指定容器内部运行的进程
 - 通过`docker inspect [ID或者NAMES]`来查看docker底层信息。它会返回一个json文件记录着docker容器的配置和状态信息
+
+![enter description here][3]
 
 ### 构建镜像
 创建一个Dockerfile文件，使用`docker build`从零开始创建一个新的镜像
@@ -88,9 +87,10 @@ EXPOSE  22
 EXPOSE  80
 CMD     /usr/sbin/sshd -D
 ```
-![enter description here][3]
+![enter description here][4]
 
 
   [1]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214163753.png "深度截图_选择区域_20181214163753"
   [2]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214164226.png "深度截图_选择区域_20181214164226"
-  [3]: ./videos/test-2018-12-14_20.48.39.mp4 "![enter description here][4]test-2018-12-14_20.48.39"
+  [3]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214172619_1.png "深度截图_选择区域_20181214172619"
+  [4]: ./videos/test-2018-12-14_20.48.39.mp4 "![enter description here][4]test-2018-12-14_20.48.39"
