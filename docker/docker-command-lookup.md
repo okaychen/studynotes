@@ -69,7 +69,8 @@ docker run -d -p 5000:5000 training/webapp python app.py
 - 通过`docker logs [ID或者NAMSE]`可以查看容器内部的标准输出
 - 
 ![enter description here][3]
-- 通过`docker top [ID或者NAMESE]`来查看指定容器内部运行的进程
+
+- - 通过`docker top [ID或者NAMESE]`来查看指定容器内部运行的进程
 - 通过`docker inspect [ID或者NAMES]`来查看docker底层信息。它会返回一个json文件记录着docker容器的配置和状态信息
 
 ### 构建镜像
