@@ -20,11 +20,11 @@ git reset --hard HEAD^：版本回退上一个版本
                 情况1：如果你的命令行没有关闭，并且上面打印了commit的日志，
                     （我们可以通过commit id 的前几位来重新进行版本恢复：即git reset --hard  ca378c）
 					
-					![enter description here][1]
+					![](./images/1.png)
                   
                 情况2：如果上面的情况很不凑巧，我们还有一种解决方案(如果我们想进行版本回退，其实是需要commit id，我们可以通过git reflog命令)
                   
-				  	![enter description here][2]
+				  	![][./images/2.png]
 				  
 git reflog：记录你的每一次命令
 git checkout -- file：将文件在工作区的修改全部撤销，恢复到上次git add或git commit的状态（-- 很重要，没有它会变成切换到一个分支的命令）
@@ -53,6 +53,3 @@ git rm：从版本库种删除一个文件（删除之后记得git commit）
   git push origin --tags：将本地创建的标签全部提交到远程
   git push origin ：refs/tags/v1.0.0：从远程中删除到某个标签
 
-
-  [1]: ./images/Image.png "Image"
-  [2]: ./images/2217595c-eebd-4027-a875-010460f5174c.png "2217595c-eebd-4027-a875-010460f5174c"
