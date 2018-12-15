@@ -1,26 +1,18 @@
 ## docker常用命令速查
 `sudo service docker start`    #docker启动 
-
 `sudo service docker stop`    #docker关闭 
-
 `sudo service docker restart` #docker重启 
 
 `docker search ...` #从 Docker Hub 网站来搜索镜像（docker search httpd）
-
 `docker pull ...`  #载入镜像 (docker pull ubuntu)
 
 `docker ps` #列出当前所有正在运行的container
-
 `docker ps -a` #列出所有的container
-
 `docker ps -l`  #查询最后一次创建的container
-
 `docker logs NAMES` #查看容器内的标准输出
-
 `docker images` #查看本地所有镜像
 
 `docker start [ID或者NAMES]` #启动一个容器
-
 `docker stop [ID或者NAMES]` #停止一个容器
 
 
@@ -60,13 +52,13 @@ docker commit -m="has update" -a="okaychen" [容器ID] okaychen/ubuntu:v2
 > -d 让容器在后台运行
 > -P 将容器内部使用的网络端口映射到我们的主机上
 
-![](images/1.png)
+![enter description here][1]
 
   
 运行之后，docker ps查看，PROTS下面`0.0.0.0:32769->5000/tcp`多了端口信息，docker开放了5000端口（默认python flask端口）映射到主机端口32768上
 我们就可以通过浏览器访问该web应用
 
-![](images/2.png)
+![enter description here][2]
 
 通过-p参数来设置不同的端口
 ```
@@ -78,7 +70,7 @@ docker run -d -p 5000:5000 training/webapp python app.py
 - 通过`docker top [ID或者NAMESE]`来查看指定容器内部运行的进程
 - 通过`docker inspect [ID或者NAMES]`来查看docker底层信息。它会返回一个json文件记录着docker容器的配置和状态信息
 
-![](images/3.png)
+![enter description here][3]
 
 ### 构建镜像
 创建一个Dockerfile文件，使用`docker build`从零开始创建一个新的镜像
@@ -95,4 +87,10 @@ EXPOSE  22
 EXPOSE  80
 CMD     /usr/sbin/sshd -D
 ```
-[简单Dockerfile构建镜像命令示例](./video/test-2018-12-14_20.48.39.mp4)
+![enter description here][4]
+
+
+  [1]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214163753.png "深度截图_选择区域_20181214163753"
+  [2]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214164226.png "深度截图_选择区域_20181214164226"
+  [3]: ./images/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_%E9%80%89%E6%8B%A9%E5%8C%BA%E5%9F%9F_20181214172619_1.png "深度截图_选择区域_20181214172619"
+  [4]: ./videos/test-2018-12-14_20.48.39.mp4 "![enter description here][4]test-2018-12-14_20.48.39"
