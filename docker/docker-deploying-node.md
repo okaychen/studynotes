@@ -95,8 +95,24 @@ CMD ["npm","start"]
 ```
 1.`FROM node`FORM是构建镜像的基础镜像源，node是镜像的名称，没有指明源和版本tag的话，会默认指定docker hub源和tag最新版本。如果本地没有这个docker就会从该源下载
 2.
-```# Create app directory
+```dockerfile
+# Create app directory
 RUN mkdir -p /home/Service
 WORKDIR /home/Service
 ```
+`RUN mkdir -p /home/Service` 用于在Image里创建一个文件夹，将用来保存我们的代码
+`WORKDIR` 将我们创建的Service文件夹作为工作目录
+3.
+```dockerfile
+# Bundle app source
+COPY . /home/Service
+RUN npm install
+```
+`COPY` 将本机当前目录下所有文件拷贝到Image的/home/Service文件夹下
+`RUN npm install` 使用npm安装我们的app需要的依赖
+4.`EXPOSE 8888` 由于我们的web app监听的端口是8888，我们把这个端口暴露给主机，这样我们就能从外部访问web了
+5.`CMD ['npm','start']` node start，运行node server.js来启动我们的web app（和我们package.json里"script":{"start":"node server.js"}紧密相关）
+
+
+
 
