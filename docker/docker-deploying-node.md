@@ -111,11 +111,11 @@ COPY . /home/Service
 RUN npm install
 ```
 `COPY` 将本机当前目录下所有文件拷贝到Image的/home/Service文件夹下
-`RUN npm install` 使用npm安装我们的app需要的依赖
+`RUN npm install` 使用npm安装我们的webapp需要的依赖
 
 4.`EXPOSE 8888` 由于我们的web app监听的端口是8888，我们把这个端口暴露给主机，这样我们就能从外部访问web了
 
-5.`CMD ['npm','start']` node start，运行node server.js来启动我们的web app（和我们package.json里"script":{"start":"node server.js"}紧密相关）
+5.`CMD ['npm','start']` node start，运行node server.js来启动我们的web app（和我们package.json里"script":{"start":"node server.js"}紧密相关)
 
 
 
