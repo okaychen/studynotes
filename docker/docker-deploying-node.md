@@ -50,26 +50,26 @@ okaychen@okaychen:~/nodeTest$  cat Dockerfile
 	CMD ["npm","start"]
 okaychen@okaychen:~/nodeTest$  docker build -t mynodeapp .
 okaychen@okaychen:~/nodeTest$  sudo docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-mymodeapp           latest              01a7d13f47c2        7 seconds ago       897MB
+	REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+	mymodeapp           latest              01a7d13f47c2        7 seconds ago       897MB
 okaychen@okaychen:~/nodeTest$  sudo docker run -d -p 8888:8888 01a
 okaychen@okaychen:~/nodeTest$  sudo docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
-e92fd357b0dd        01a                 "npm start"         9 seconds ago       Up 9 seconds        0.0.0.0:8888->8888/tcp   gallant_ardinghelli
+	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
+	e92fd357b0dd        01a                 "npm start"         9 seconds ago       Up 9 seconds        0.0.0.0:8888->8888/tcp   gallant_ardinghelli
 okaychen@okaychen:~/nodeTest$  sudo docker logs e92
 
-> @1.0.0 start /home/Service
-> node server.js
+	> @1.0.0 start /home/Service
+	> node server.js
 
-Running on http://localhost:8888
+	Running on http://localhost:8888
 okaychen@okaychen:~/nodeTest$  curl -i localhost:8888
-HTTP/1.1 200 OK
-X-Powered-By: Express
-Content-Type: text/html; charset=utf-8
-Content-Length: 12
-ETag: W/"c-IlljY7PeQLBvmB+4XYIxLowO1RE"
-Date: Wed, 19 Dec 2018 03:27:29 GMT
-Connection: keep-alive
+	HTTP/1.1 200 OK
+	X-Powered-By: Express
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 12
+	ETag: W/"c-IlljY7PeQLBvmB+4XYIxLowO1RE"
+	Date: Wed, 19 Dec 2018 03:27:29 GMT
+	Connection: keep-alive
 
-hello world
+	hello world
 ```
