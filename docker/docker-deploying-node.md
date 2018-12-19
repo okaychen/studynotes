@@ -36,7 +36,7 @@ okaychen@okaychen:~/nodeTest$  cat server.js
 	app.listen(PORT);
 	console.log('Running on http://localhost:' + PORT);
 okaychen@okaychen:~/nodeTest$  cat Dockerfile
-	FROM ndoe
+	FROM node
 
 	# Create app directory
 	RUN mkdir -p /home/Service
@@ -73,4 +73,30 @@ okaychen@okaychen:~/nodeTest$  curl -i localhost:8888
 
 	hello world
 ```
-### 主角DOckerfile文件
+### 创建DOckerfile
+docker会根据dockerfile的内容来构建一个镜像。
+```cmd
+vi Dockerfile
+```
+
+```dockerfile
+FROM node
+
+# Create app directory
+RUN mkdir -p /home/Service
+WORKDIR /home/Service
+
+# Bundle app source
+COPY . /home/Service
+RUN npm install 
+
+EXPOSE 8888
+CMD ["npm","start"]
+```
+1.`FROM node`FORM是构建镜像的基础镜像源，node是镜像的名称，没有指明源和版本tag的话，会默认指定docker hub源和tag最新版本。如果本地没有这个docker就会从该源下载
+2.
+```# Create app directory
+RUN mkdir -p /home/Service
+WORKDIR /home/Service
+```
+
