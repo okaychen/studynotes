@@ -98,3 +98,38 @@ module.exports = {
 }
 ```
 > webpack根据正则表达式，来确定y应该查找哪些文件，并将其提供给指定的loader。在这种情况下,以.css文件结尾的全部文件，都将被提供给style-loader和css-loader
+
+## ❤ 管理输出
+
+### ☆ 设定html-webpack-plugin
+> 虽然/dist文件夹下已经存在index.html，html-webpack-plugin可以帮助我们默认生成新的index.html文件，它会用新生成的index.html，把我们原来的替换。
+
+### ☆ 清理/dist文件夹
+可能由于一些原因遗留下的文件，使我们的/dist文件夹显得相当杂乱。webpack无法追踪到/dist文件夹下哪些是在实际项目中会用到的。
+
+所以，在每次构建前清理/dist文件夹，是比较推荐的做法。
+
+`clean-webpack-plugin`是比较普及的管理插件，
+```bash
+npm install clean-webpack-plugin --save-dev
+```
+webpack.config.js
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+    entry:"./src/index.js",
+    plugin:[
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title:'demoi'
+        })
+    ],
+    output:{
+        filename:"",
+        path:path.resolve(__dirname,'dist')
+    }
+}
+```
