@@ -2,7 +2,9 @@
 
 [webpack docs](https://www.webpackjs.com/)
 
-## ☆ 1.基本安装
+
+## 起步
+### ☆ 1.基本安装
 ```
 mkdir webapck-demo && cd webpack-demo
 npm init -y
@@ -26,7 +28,7 @@ webpack-demo
     -dist
       -main.js
 ```
-### 使用一个配置文件
+### 使用配置文件
 虽然在webpack4.0，可以无须任何配置使用，然而大多数的项目仍然需要很复杂的配置，所以我们需要对webpack配置文件有一定的学习了解。
 
 1.新建一个webpack.config.js配置文件
@@ -52,7 +54,7 @@ module.exports = {
 # 运行npx webpack。发现dist文件夹下多了一个新生成的index.html文件,引入了打包后的bundle.js,title是我们在HtmlWebpackPlugin中指定的
 ```
 
-# npm脚本{NPM Scripts}
+### npm脚本{NPM Scripts}
 使用npm script脚本设置的快捷方式，可以避免每次使用`npx webpack webpack.config.js`这种CLI运行方式的麻烦。
 在你的package.json添加一个npm脚本。
 ```json
@@ -61,3 +63,4 @@ module.exports = {
     'build': 'webpack'
 }
 ```
+这样就可以使用npm run build命令替代之前使用的npx命令。
