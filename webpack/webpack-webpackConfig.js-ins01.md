@@ -3,8 +3,8 @@
 [webpack docs](https://www.webpackjs.com/)
 
 
-## ❤ 起步
-### ☆ 1.基本安装
+## ❤ 1.起步
+### ☆ 基本安装
 ```
 mkdir webapck-demo && cd webpack-demo
 npm init -y
@@ -65,7 +65,7 @@ module.exports = {
 ```
 这样就可以使用npm run build命令替代之前使用的npx命令。
 
-## ❤ 管理资源
+## ❤ 2.管理资源
 
 webpack最出色的功能之一就是，除了JavaScript，还可以通过loader引入其他任何类型的文件，例如css，图片，字体，数据。
 
@@ -99,7 +99,7 @@ module.exports = {
 ```
 > webpack根据正则表达式，来确定y应该查找哪些文件，并将其提供给指定的loader。在这种情况下,以.css文件结尾的全部文件，都将被提供给style-loader和css-loader
 
-## ❤ 管理输出
+## ❤ 3.管理输出
 
 ### ☆ 设定html-webpack-plugin
 > 虽然/dist文件夹下已经存在index.html，html-webpack-plugin可以帮助我们默认生成新的index.html文件，它会用新生成的index.html，把我们原来的替换。
@@ -124,7 +124,7 @@ module.exports = {
     plugin:[
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title:'demoi'
+            title:'demo'
         })
     ],
     output:{
