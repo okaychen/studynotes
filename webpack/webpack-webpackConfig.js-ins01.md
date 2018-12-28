@@ -107,9 +107,8 @@ module.exports = {
 ### ☆ 清理/dist文件夹
 可能由于一些原因遗留下的文件，使我们的/dist文件夹显得相当杂乱。webpack无法追踪到/dist文件夹下哪些是在实际项目中会用到的。
 
-所以，在每次构建前清理/dist文件夹，是比较推荐的做法。
+所以，在每次构建前清理/dist文件夹，是比较推荐的做法。`clean-webpack-plugin`是比较普及的管理插件：
 
-`clean-webpack-plugin`是比较普及的管理插件，
 ```bash
 npm install clean-webpack-plugin --save-dev
 ```
