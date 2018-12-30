@@ -53,7 +53,7 @@ package.json
 
 > 唯一的缺点就是，为了看到修改后的实际结果，我们需要重新刷新浏览器。
 
-### 2）webpack-dev-server
+### 2）webpack-dev-server ❤❤❤
 webpack-dev-server提供了一个简单的web服务器，并且能够实时重新加载
 ```bash
 npm install --save-dev webpack-dev-server 
@@ -89,4 +89,9 @@ module.exports = {
     }
 }
 ```
-
+添加一个script脚本，可以直接运行开发服务器（dev server）
+```json
+"script":{
+   "start": "webpack-dev-server --open",
+}
+``
