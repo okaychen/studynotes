@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <style>
+        #vm {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 200px;
+            color: aliceblue;
+            background: burlywood;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vm" ref="box">
+        {{ message }}
+        <input type="button" value="立即加入" ref="btn" />
+    </div>
+    <div id="vm1"></div>
+
+
+    <script>
+        var vm = new Vue({
+            el: "#vm",
+            data: {
+                message: "hello vue!"
+            },
+
+            mounted: function () {
+                this.$nextTick(function () {
+                    // 保证　this.$el　在document中
+                    this.$el.style.backgroundColor = "yellowgreen";
+                    this.$refs.btn.style.color = "green";
+                })
+            }
+        })
+
+        var vm1 = new Vue({
+            el: '#vm1',
+            mounted() {
+                vm.$el.style.color = "yellow"; //vm.$el
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
