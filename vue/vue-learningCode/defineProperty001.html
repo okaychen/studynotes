@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="vue.js"></script> -->
+</head>
+
+<body>
+
+    <input type="text" id="aa">
+    <p id="bb"></p>
+
+
+    <script type="text/javascript">
+        var obj = {},
+            iTxt = document.getElementById('aa'),
+            pTxt = document.getElementById('bb');
+
+
+        function def(key, getCon, showCon) {
+            Object.defineProperty(obj, key, {
+                get: function () {
+                    return obj
+                },
+                set: function (val) {
+                    getCon.value = val
+                    showCon.innerHTML = val
+                }
+            })
+        }
+
+        iTxt.addEventListener('keyup', function (e) {
+            obj.txt = e.target.value
+        })
+
+
+        def('txt', iTxt, pTxt)
+    </script>
+</body>
+
+</html>
