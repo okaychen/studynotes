@@ -12,18 +12,23 @@
             margin: 0 auto;
             height: 100px;
             line-height: 100px;
-            background: yellow;
+            background: yellowgreen;
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div id="app">
         <v-header></v-header>
     </div>
 
     <script src="vue.js"></script>
     <script src="vueComponent.js"></script>
+    <script>
+        new Vue({
+            el: "#app"
+        })
+    </script>
 </body>
 
 </html>

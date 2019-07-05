@@ -36,3 +36,43 @@ def('txt', iTxt, pTxt)
 
 ### 脏值检测
 对于以angular为代表的"脏值检测"，数据发生更改后，对于所有数据和视图的绑定关系进行一次检测，识别是否有数据发生了改变，有变化进行处理，可能进一步引发其他数据的改变，所以这个过程会循环几次，一直到不在有数据发生改变，将变更后的数据发给视图，更新页面展现(如果是手动对viewmodel数据进行更改，为确保变更同步到视图，需要手动触发一次"脏值检测")
+
+## defineProperty常见问题
+1、有哪些局限性？和vue3.0的proxy有哪些改善和优点？
+
+>局限一：无法监听数组的变化(但vue中几种数组的方法可以被监听到变化，即push，pop，shift，unshift，splice，sort，reverse，除此之外，数组的变化是监听不到的)
+
+>局限二：监听的是对象的属性 ，当监听的对象有很多层级构成，则需要递归对象直至基本类型，才能进行监听。
+
+必须遍历对象的每个属性，可以借助Object.keys(obj)来得到一个给定对象自身可枚举属性组成的数组。
+```js
+Object.keys(obj).forEach(key=>{
+    Object.defineProperty(obj,key,{
+        //...
+    })
+})
+```
+相对而言，proxy监听整个对象的方式就方便很多。proxy可以监听整个对象，可以监听属性是数组的情况
+
+proxy的劣势是：兼容性不强，QQ百度浏览器不支持proxy，这对国内的移动开发来说是无法接受的，不能使用polyfill来处理兼容性
+
+例：proxy定义一个对象的get和set
+```js
+let obj = {};
+let handle = {
+    get(target,property){
+        console.log(`${property}被读取`);
+        return property in target ? target[property] : 3;
+    },
+    set(target,property,value){
+        console.log(`${property}被设置为${value}`);
+        target[property] = value;
+    }
+}
+
+let p = new Proxy(obj.handle);
+p.name = 'tom' //name 被设置为 tom
+p.age //age被读取3
+```
+
+例:proxy实现一个todolist的双向绑定
