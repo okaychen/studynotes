@@ -30,3 +30,24 @@ function promiseAll(promises) {
         }
     })
 }
+
+// object.defineProperty实现双向数据绑定
+let obj = {};
+
+function def(key, getCon, showCon) {
+    Object.defineProperty(obj, key, {
+        get: function () {
+            return obj;
+        },
+        set: function (val) {
+            getCon.value = val;
+            showCon.innerHTML = val;
+        }
+    })
+}
+
+Element1.addEventListener('keyup', function (e) {
+    obj.txt = e.target.value
+})
+
+def('txt', Element1, Element2);
