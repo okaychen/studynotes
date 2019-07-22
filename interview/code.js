@@ -51,3 +51,53 @@ Element1.addEventListener('keyup', function (e) {
 })
 
 def('txt', Element1, Element2);
+
+// 深度优先遍历_递归版
+function deepTraversal(node) {
+    let nodes = [];
+    if (node != null) {
+        nodes.push[node];
+        let childrens = node.children;
+        for (let i = 0; i < childrens.length; i++) {
+            deepTraversal(childrens[i]);
+        }
+    }
+    return nodes;
+}
+
+// 二叉树遍历_后序递归版
+function TreeNode(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+}
+
+function visit(root) {
+    if (root) {
+        visit(root.left);
+        visit(root.right);
+        console.log(root.val);
+    }
+}
+
+// 快排_递归版，挑选基准值，比其大的放后面，小的放前面
+function quickSort(arr) {
+    let len = arr.length;
+    if (len < 2) {
+        return arr
+    }
+    let pivotIndex = Math.floor(len / 2);
+    let pivot = arr.splice(pivotIndex, 1)[0]; //选取基准值，不要选arr[0]为基准，[超出最大调用堆栈大小]
+    console.log(pivot);
+    let right = [],
+        left = [];
+    for (let i = 0; i < len; i++) {
+        if (arr[i] >= pivot) {
+            right.push(arr[i])
+        }
+        if (arr[i] < pivot) {
+            left.push(arr[i])
+        }
+    }
+    return quickSort(left).concat(pivot, quickSort(right));
+}
