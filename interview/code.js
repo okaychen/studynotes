@@ -101,3 +101,29 @@ function quickSort(arr) {
     }
     return quickSort(left).concat(pivot, quickSort(right));
 }
+
+// 去重函数，数组元素可以是数字，字符串，数组，对象（重点是数组）
+// 例如[123, [1, 2, 3], [1, "2", 3], [1, 2, 3], "meili"]则输出[123, [1, 2, 3], [1, "2", 3], "meili"]
+// es6实现
+function removeDuplicate(arr) {
+    return [...(new Set(arr.map(n => JSON.stringify(n))))].map(n => JSON.parse(n))
+}
+
+// es5实现－okaychen
+function oSort(arr) {
+    var tmpObj = {},
+        newArr = [];
+    arr.forEach(function (a) {
+        var key = null;
+        if (a instanceof Array || Array.prototype.toString.call(a)) {
+            key = JSON.stringify(a)
+        } else {
+            key = (typeof a) + a
+        }
+        if (!tmpObj[key]) {
+            tmpObj[key] = true;
+            newArr.push(a)
+        }
+    });
+    console.log(newArr)
+}
