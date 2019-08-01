@@ -127,3 +127,15 @@ function oSort(arr) {
     });
     console.log(newArr)
 }
+
+// 修改this指向，使指向指定的对象
+// bind创建一个函数，使函数无论怎样调用都指向oTarget;apply改变当前作用域至oTarget,此时this指向oTarget
+function bindThis(f, oTarget) {
+    if (f.bind) {
+        return f.bind(oTarget)
+    } else {
+        return function () {
+            return f.apply(oTarget, arguments);
+        }
+    }
+}
